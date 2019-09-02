@@ -12,7 +12,10 @@ Copy files to your [Grafana plugin directory](http://docs.grafana.org/plugins/in
 ### Access to Druid via HTTP
 Page configuration is standard
 
-![settings](https://user-images.githubusercontent.com/8663725/64116935-55e80b00-cdc6-11e9-95a8-67a0450e0645.jpg)
+![settings](https://user-images.githubusercontent.com/8663725/64116935-55e80b00-cdc6-11e9-95a8-67a0450e0645.jpg)  
+
+the url is like http://localhost:8082/opentsdb/flink_metrics  
+the `flink_metrics` is the backend druid datasource base name
 
 ### Query setup
 
