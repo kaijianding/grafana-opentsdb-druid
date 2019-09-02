@@ -1,0 +1,32 @@
+{
+  "type": "datasource",
+  "name": "OpenTSDB-druid",
+  "id": "grafana-opentsdb-druid",
+
+  "info": {
+	"description": "druid data source via opentsdb protocol v2.2.",
+    "author": {
+      "name": "kaijian.ding@gmail.com",
+      "url": "https://github.com/kaijianding/grafana-opentsdb-druid"
+    },
+    "keywords": ["druid", "opentsdb"],
+    "logos": {
+      "small": "img/opentsdb_logo.png",
+      "large": "img/opentsdb_logo.png"
+    },
+    "links": [
+      {"name": "GitHub", "url": "https://github.com/kaijianding/grafana-opentsdb-druid"},
+      {"name": "GPL V3 License", "url": "https://github.com/kaijianding/grafana-opentsdb-druid/blob/master/LICENSE"}
+    ],
+    "version": "0.0.1",
+    "updated": "2019-09-02"
+  },
+
+  "dependencies": {
+    "grafanaVersion": "4.5.x",
+    "plugins": [ ]
+  },
+
+  "metrics": true,
+  "annotations": false
+}
