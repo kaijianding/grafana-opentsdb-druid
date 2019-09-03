@@ -1,7 +1,7 @@
 {
   "type": "datasource",
   "name": "OpenTSDB-druid",
-  "id": "grafana-opentsdb-druid",
+  "id": "kaijianding-opentsdb-druid-datasource",
 
   "info": {
 	"description": "druid data source via opentsdb protocol v2.2.",
