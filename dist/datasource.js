@@ -396,6 +396,9 @@ System.register(['angular', 'lodash', 'app/core/utils/datemath'], function(expor
                         if (query.filters) {
                             for (var filterKey in query.filters) {
                                 query.filters[filterKey].filter = this.templateSrv.replace(query.filters[filterKey].filter, options.scopedVars, 'pipe');
+                                if (query.filters[filterKey].filter == OpenTsDatasource.EMPTY_PLACEHOLDER) {
+                                    delete query.filters[filterKey];
+                                }
                             }
                         }
                     }
@@ -404,6 +407,9 @@ System.register(['angular', 'lodash', 'app/core/utils/datemath'], function(expor
                         if (query.tags) {
                             for (var tagKey in query.tags) {
                                 query.tags[tagKey] = this.templateSrv.replace(query.tags[tagKey], options.scopedVars, 'pipe');
+                                if (query.tags[tagKey] == OpenTsDatasource.EMPTY_PLACEHOLDER) {
+                                    delete query.tags[tagKey];
+                                }
                             }
                         }
                     }
@@ -443,6 +449,7 @@ System.register(['angular', 'lodash', 'app/core/utils/datemath'], function(expor
                     date = dateMath.parse(date, roundUp);
                     return date.valueOf();
                 };
+                OpenTsDatasource.EMPTY_PLACEHOLDER = '<NONE>';
                 return OpenTsDatasource;
             })();
             exports_1("OpenTsDatasource", OpenTsDatasource);

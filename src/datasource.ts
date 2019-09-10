@@ -3,6 +3,7 @@ import _ from 'lodash';
 import * as dateMath from 'app/core/utils/datemath';
 
 export class OpenTsDatasource {
+  private static EMPTY_PLACEHOLDER:string = '<NONE>';
   type: any;
   url: any;
   name: any;
@@ -467,6 +468,9 @@ export class OpenTsDatasource {
             options.scopedVars,
             'pipe'
           );
+          if (query.filters[filterKey].filter == OpenTsDatasource.EMPTY_PLACEHOLDER) {
+            delete query.filters[filterKey];
+          }
         }
       }
     } else {
@@ -474,6 +478,9 @@ export class OpenTsDatasource {
       if (query.tags) {
         for (const tagKey in query.tags) {
           query.tags[tagKey] = this.templateSrv.replace(query.tags[tagKey], options.scopedVars, 'pipe');
+          if (query.tags[tagKey] == OpenTsDatasource.EMPTY_PLACEHOLDER) {
+            delete query.tags[tagKey];
+          }
         }
       }
     }

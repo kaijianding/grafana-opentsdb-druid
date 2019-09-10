@@ -2,6 +2,7 @@ export declare class OpenTsDatasource {
     private $q;
     private backendSrv;
     private templateSrv;
+    private static EMPTY_PLACEHOLDER;
     type: any;
     url: any;
     name: any;
