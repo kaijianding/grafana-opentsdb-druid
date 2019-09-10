@@ -246,6 +246,10 @@
 			</input>
 		</div>
 
+		<gf-form-switch ng-hide="!ctrl.target.shouldComputeRate"
+						class="gf-form" label="Qps" label-class="query-keyword" checked="ctrl.target.isQps" on-change="ctrl.targetBlur()">
+		</gf-form-switch>
+
 		<div class="gf-form gf-form--grow">
 			<div class="gf-form-label gf-form-label--grow"></div>
 		</div>

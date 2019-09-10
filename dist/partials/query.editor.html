@@ -194,10 +194,11 @@
 		</div>
 
 		<div class="gf-form" ng-if="ctrl.tagKeys" ng-repeat="(i,key) in ctrl.tagKeys track by $index">
-			<div style="padding: 0 8px;background-color:#dde4ed">
-				{{key}}&nbsp;=
+			<label class="gf-form-label" style="margin-right:1px;border-left:0;border-top-left-radius:0;border-bottom-left-radius:0">{{key}}&nbsp;=</label>
+			<div style="flex-grow: 1;">
 				<input type="text"
-					   class="gf-form-input max-width-8" style="display: inline-block;width: 68%"
+					   class="gf-form-input max-width-8"
+					   style="margin-right:1px;border-top-right-radius:0;border-bottom-right-radius:0"
 					   spellcheck='false'
 					   bs-typeahead="ctrl.getTagValues"
 					   data-min-length=0 data-items=100
@@ -205,14 +206,16 @@
 					   ng-focus="ctrl.currentTagKey=key"
 					   ng-blur="ctrl.targetBlur()"
 					   placeholder="value"></input>
+			</div>
+			<label class="gf-form-label" style="margin-right:0;padding-right:0;border-top-left-radius:0;border-bottom-left-radius:0">
 				<a ng-click="ctrl.removeTag(key)">
 					<i class="fa fa-remove"></i>
 				</a>
-			</div>
+			</label>
 		</div>
 
 		<div class="gf-form gf-form--grow">
-			<div class="gf-form-label gf-form-label--grow"></div>
+			<div class="gf-form-label gf-form-label--grow" style="border-top-left-radius:0;border-bottom-left-radius:0"></div>
 		</div>
 	</div>
 
@@ -242,6 +245,10 @@
 						 ng-blur="ctrl.targetBlur()">
 			</input>
 		</div>
+
+		<gf-form-switch ng-hide="!ctrl.target.shouldComputeRate"
+						class="gf-form" label="Qps" label-class="query-keyword" checked="ctrl.target.isQps" on-change="ctrl.targetBlur()">
+		</gf-form-switch>
 
 		<div class="gf-form gf-form--grow">
 			<div class="gf-form-label gf-form-label--grow"></div>

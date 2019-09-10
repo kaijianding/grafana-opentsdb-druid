@@ -432,6 +432,7 @@ export class OpenTsDatasource {
       query.rate = true;
       query.rateOptions = {
         counter: !!target.isCounter,
+        qps: !!target.isQps
       };
 
       if (target.counterMax && target.counterMax.length) {

@@ -26,6 +26,7 @@ export declare class OpenTsDatasource {
     _performSuggestQuery(query: any, type: any): any;
     _performSuggestQuery_tagv(metric: any, tagk: any, query: any): any;
     _performMetricKeyValueLookup(metric: any, keys: any): any;
+    _performMetricKeyValueLookupWithDelimiter(metric: any, tagk: any, filterDelimiter: any): any;
     _get(relativeUrl: any, params?: any): any;
     _addCredentialOptions(options: any): void;
     metricFindQuery(query: any): any;

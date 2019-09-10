@@ -48,6 +48,9 @@ System.register(['angular', 'lodash', 'app/plugins/sdk'], function(exports_1) {
                     };
                     this.linesLimitKeys = Object.keys(this.linesLimitOptions);
                     this.tsdbVersion = this.datasource.tsdbVersion;
+                    if (this.target.isQps === undefined) {
+                        this.target.isQps = true;
+                    }
                     if (!this.target.aggregator) {
                         this.target.aggregator = 'sum';
                     }

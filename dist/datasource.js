@@ -159,6 +159,7 @@ System.register(['angular', 'lodash', 'app/core/utils/datemath'], function(expor
                     var end = this.convertToTSDBTime(options.timeRange.to, true, options.timezone);
                     return this._get('/api/suggesttagv', {
                         q: query,
+                        qDelimiter: ',',
                         max: 30,
                         metric: metric,
                         tagk: tagk,
@@ -172,9 +173,7 @@ System.register(['angular', 'lodash', 'app/core/utils/datemath'], function(expor
                     if (!metric || !keys) {
                         return this.$q.when([]);
                     }
-                    var keysArray = keys.split(',').map(function (key) {
-                        return key.trim();
-                    });
+                    var keysArray = keys.split(',');
                     var tagk = keysArray[0];
                     keysArray.shift();
                     var keysQuery = '';
@@ -186,6 +185,32 @@ System.register(['angular', 'lodash', 'app/core/utils/datemath'], function(expor
                     var end = this.convertToTSDBTime(options.timeRange.to, true, options.timezone);
                     return this._get('/api/suggesttagv', {
                         q: keysQuery,
+                        qDelimiter: ',',
+                        metric: metric,
+                        tagk: tagk,
+                        start: start,
+                        end: end
+                    }).then(function (result) {
+                        return result.data;
+                    });
+                };
+                OpenTsDatasource.prototype._performMetricKeyValueLookupWithDelimiter = function (metric, tagk, filterDelimiter) {
+                    if (!metric || !tagk) {
+                        return this.$q.when([]);
+                    }
+                    var filters = filterDelimiter.split(',');
+                    var delimiter = filters[0];
+                    filters.shift();
+                    var keysQuery = '';
+                    if (filters.length > 0) {
+                        keysQuery = filters.join(',');
+                    }
+                    var options = this.templateSrv;
+                    var start = this.convertToTSDBTime(options.timeRange.from, false, options.timezone);
+                    var end = this.convertToTSDBTime(options.timeRange.to, true, options.timezone);
+                    return this._get('/api/suggesttagv', {
+                        q: keysQuery,
+                        qDelimiter: delimiter,
                         metric: metric,
                         tagk: tagk,
                         start: start,
@@ -230,6 +255,7 @@ System.register(['angular', 'lodash', 'app/core/utils/datemath'], function(expor
                     var metricsRegex = /metrics\((.*)\)/;
                     var tagNamesRegex = /tag_names\((.*)\)/;
                     var tagValuesRegex = /tag_values\((.*?),\s?(.*)\)/;
+                    var tagValuesWithFiltersRegex = /tag_values_with_filters\((.*?),\s?(.*?),\s?(.*)\)/;
                     var metricsQuery = interpolated.match(metricsRegex);
                     if (metricsQuery) {
                         return this.suggestMetrics(metricsQuery[1]).then(responseTransform);
@@ -241,6 +267,10 @@ System.register(['angular', 'lodash', 'app/core/utils/datemath'], function(expor
                     var tagValuesQuery = interpolated.match(tagValuesRegex);
                     if (tagValuesQuery) {
                         return this._performMetricKeyValueLookup(tagValuesQuery[1], tagValuesQuery[2]).then(responseTransform);
+                    }
+                    var tagValuesWithFiltersQuery = interpolated.match(tagValuesWithFiltersRegex);
+                    if (tagValuesWithFiltersQuery) {
+                        return this._performMetricKeyValueLookupWithDelimiter(tagValuesWithFiltersQuery[1], tagValuesWithFiltersQuery[2], tagValuesWithFiltersQuery[3]).then(responseTransform);
                     }
                     return this.$q.when([]);
                 };
@@ -341,6 +371,7 @@ System.register(['angular', 'lodash', 'app/core/utils/datemath'], function(expor
                         query.rate = true;
                         query.rateOptions = {
                             counter: !!target.isCounter,
+                            qps: !!target.isQps
                         };
                         if (target.counterMax && target.counterMax.length) {
                             query.rateOptions.counterMax = parseInt(target.counterMax, 10);

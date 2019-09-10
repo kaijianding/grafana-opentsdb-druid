@@ -181,6 +181,7 @@ export class OpenTsDatasource {
     const end = this.convertToTSDBTime(options.timeRange.to, true, options.timezone);
       return this._get('/api/suggesttagv', {
           q: query,
+          qDelimiter: ',',
           max: 30,
           metric: metric,
           tagk: tagk,
@@ -196,9 +197,7 @@ export class OpenTsDatasource {
       return this.$q.when([]);
     }
 
-    const keysArray = keys.split(',').map(key => {
-      return key.trim();
-    });
+    const keysArray = keys.split(',');
     const tagk = keysArray[0];
     keysArray.shift();
     let keysQuery = '';
@@ -212,6 +211,36 @@ export class OpenTsDatasource {
     const end = this.convertToTSDBTime(options.timeRange.to, true, options.timezone);
     return this._get('/api/suggesttagv', {
       q: keysQuery,
+      qDelimiter: ',',
+      metric: metric,
+      tagk: tagk,
+      start: start,
+      end: end
+    }).then(result => {
+      return result.data;
+    });
+  }
+
+  _performMetricKeyValueLookupWithDelimiter(metric, tagk, filterDelimiter) {
+    if (!metric || !tagk) {
+      return this.$q.when([]);
+    }
+
+    const filters = filterDelimiter.split(',');
+    const delimiter = filters[0];
+    filters.shift();
+    let keysQuery = '';
+
+    if (filters.length > 0) {
+      keysQuery = filters.join(',');
+    }
+    const options = this.templateSrv;
+
+    const start = this.convertToTSDBTime(options.timeRange.from, false, options.timezone);
+    const end = this.convertToTSDBTime(options.timeRange.to, true, options.timezone);
+    return this._get('/api/suggesttagv', {
+      q: keysQuery,
+      qDelimiter: delimiter,
       metric: metric,
       tagk: tagk,
       start: start,
@@ -263,6 +292,7 @@ export class OpenTsDatasource {
     const metricsRegex = /metrics\((.*)\)/;
     const tagNamesRegex = /tag_names\((.*)\)/;
     const tagValuesRegex = /tag_values\((.*?),\s?(.*)\)/;
+    const tagValuesWithFiltersRegex = /tag_values_with_filters\((.*?),\s?(.*?),\s?(.*)\)/;
 
     const metricsQuery = interpolated.match(metricsRegex);
     if (metricsQuery) {
@@ -277,6 +307,11 @@ export class OpenTsDatasource {
     const tagValuesQuery = interpolated.match(tagValuesRegex);
     if (tagValuesQuery) {
       return this._performMetricKeyValueLookup(tagValuesQuery[1], tagValuesQuery[2]).then(responseTransform);
+    }
+
+    const tagValuesWithFiltersQuery = interpolated.match(tagValuesWithFiltersRegex);
+    if (tagValuesWithFiltersQuery) {
+      return this._performMetricKeyValueLookupWithDelimiter(tagValuesWithFiltersQuery[1], tagValuesWithFiltersQuery[2], tagValuesWithFiltersQuery[3]).then(responseTransform);
     }
 
     return this.$q.when([]);
@@ -397,6 +432,7 @@ export class OpenTsDatasource {
       query.rate = true;
       query.rateOptions = {
         counter: !!target.isCounter,
+        qps: !!target.isQps
       };
 
       if (target.counterMax && target.counterMax.length) {

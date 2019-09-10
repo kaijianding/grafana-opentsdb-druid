@@ -53,6 +53,10 @@ export class OpenTsQueryCtrl extends QueryCtrl {
 
     this.tsdbVersion = this.datasource.tsdbVersion;
 
+    if (this.target.isQps === undefined) {
+      this.target.isQps = true;
+    }
+
     if (!this.target.aggregator) {
       this.target.aggregator = 'sum';
     }
