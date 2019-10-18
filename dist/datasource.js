@@ -184,7 +184,7 @@ System.register(['angular', 'lodash', 'app/core/utils/datemath'], function(expor
                     var start = this.convertToTSDBTime(options.timeRange.from, false, options.timezone);
                     var end = this.convertToTSDBTime(options.timeRange.to, true, options.timezone);
                     return this._get('/api/suggesttagv', {
-                        q: keysQuery,
+                        q: keysQuery.replace(/<NONE>/g, ''),
                         qDelimiter: ',',
                         metric: metric,
                         tagk: tagk,
@@ -209,7 +209,7 @@ System.register(['angular', 'lodash', 'app/core/utils/datemath'], function(expor
                     var start = this.convertToTSDBTime(options.timeRange.from, false, options.timezone);
                     var end = this.convertToTSDBTime(options.timeRange.to, true, options.timezone);
                     return this._get('/api/suggesttagv', {
-                        q: keysQuery,
+                        q: keysQuery.replace(/<NONE>/g, ''),
                         qDelimiter: delimiter,
                         metric: metric,
                         tagk: tagk,
@@ -396,10 +396,8 @@ System.register(['angular', 'lodash', 'app/core/utils/datemath'], function(expor
                         if (query.filters) {
                             for (var filterKey in query.filters) {
                                 query.filters[filterKey].filter = this.templateSrv.replace(query.filters[filterKey].filter, options.scopedVars, 'pipe');
-                                if (query.filters[filterKey].filter == OpenTsDatasource.EMPTY_PLACEHOLDER) {
-                                    delete query.filters[filterKey];
-                                }
                             }
+                            query.filters = query.filters.filter(function (f) { return f.filter != OpenTsDatasource.EMPTY_PLACEHOLDER; });
                         }
                     }
                     else {

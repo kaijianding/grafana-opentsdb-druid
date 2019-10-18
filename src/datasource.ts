@@ -211,7 +211,7 @@ export class OpenTsDatasource {
     const start = this.convertToTSDBTime(options.timeRange.from, false, options.timezone);
     const end = this.convertToTSDBTime(options.timeRange.to, true, options.timezone);
     return this._get('/api/suggesttagv', {
-      q: keysQuery,
+      q: keysQuery.replace(/<NONE>/g, ''),
       qDelimiter: ',',
       metric: metric,
       tagk: tagk,
@@ -240,7 +240,7 @@ export class OpenTsDatasource {
     const start = this.convertToTSDBTime(options.timeRange.from, false, options.timezone);
     const end = this.convertToTSDBTime(options.timeRange.to, true, options.timezone);
     return this._get('/api/suggesttagv', {
-      q: keysQuery,
+      q: keysQuery.replace(/<NONE>/g, ''),
       qDelimiter: delimiter,
       metric: metric,
       tagk: tagk,
@@ -468,10 +468,8 @@ export class OpenTsDatasource {
             options.scopedVars,
             'pipe'
           );
-          if (query.filters[filterKey].filter == OpenTsDatasource.EMPTY_PLACEHOLDER) {
-            delete query.filters[filterKey];
-          }
         }
+        query.filters = query.filters.filter(f => f.filter != OpenTsDatasource.EMPTY_PLACEHOLDER);
       }
     } else {
       query.tags = angular.copy(target.tags);
