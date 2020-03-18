@@ -211,7 +211,7 @@ export class OpenTsDatasource {
     const start = this.convertToTSDBTime(options.timeRange.from, false, options.timezone);
     const end = this.convertToTSDBTime(options.timeRange.to, true, options.timezone);
     return this._get('/api/suggesttagv', {
-      q: keysQuery.replace(/<NONE>/g, ''),
+      q: keysQuery.replace(/<NONE>/g, '').replace(/=\*/g, '='),
       qDelimiter: ',',
       metric: metric,
       tagk: tagk,
@@ -240,7 +240,7 @@ export class OpenTsDatasource {
     const start = this.convertToTSDBTime(options.timeRange.from, false, options.timezone);
     const end = this.convertToTSDBTime(options.timeRange.to, true, options.timezone);
     return this._get('/api/suggesttagv', {
-      q: keysQuery.replace(/<NONE>/g, ''),
+      q: keysQuery.replace(/<NONE>/g, '').replace(/=\*/g, '='),
       qDelimiter: delimiter,
       metric: metric,
       tagk: tagk,
