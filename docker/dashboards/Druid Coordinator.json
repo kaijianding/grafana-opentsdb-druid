@@ -1,0 +1,2351 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": "-- Grafana --",
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "gnetId": null,
+  "graphTooltip": 0,
+  "id": 3,
+  "iteration": 1632896109927,
+  "links": [],
+  "panels": [
+    {
+      "collapsed": true,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 25,
+      "panels": [
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "$source",
+          "fill": 1,
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 0,
+            "y": 1
+          },
+          "id": 27,
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": false,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "null",
+          "options": {},
+          "percentage": false,
+          "pointradius": 2,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "aggregateMethod": "highest average",
+              "aggregateNumber": 10,
+              "aggregator": "sum",
+              "alias": "$tag_host",
+              "downsampleAggregator": "avg",
+              "downsampleFillPolicy": "none",
+              "granularity": "auto",
+              "isQps": true,
+              "metric": "jvm.gc.count",
+              "refId": "A",
+              "tags": {
+                "clusterName": "$cluster",
+                "gcGen": "young",
+                "gcName": "g1",
+                "host": "*",
+                "service": "druid.overlord*"
+              }
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeRegions": [],
+          "timeShift": null,
+          "title": "YGC次数",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ],
+          "yaxis": {
+            "align": false,
+            "alignLevel": null
+          }
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "$source",
+          "fill": 1,
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 12,
+            "y": 1
+          },
+          "id": 26,
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": false,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "null",
+          "options": {},
+          "percentage": false,
+          "pointradius": 2,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "aggregateMethod": "highest average",
+              "aggregateNumber": 10,
+              "aggregator": "avg",
+              "alias": "$tag_host",
+              "downsampleAggregator": "avg",
+              "downsampleFillPolicy": "none",
+              "granularity": "auto",
+              "isQps": true,
+              "metric": "jvm.cpu.percent",
+              "refId": "B",
+              "tags": {
+                "clusterName": "$cluster",
+                "host": "*",
+                "service": "druid.overlord*"
+              }
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeRegions": [],
+          "timeShift": null,
+          "title": "CPU",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "percentunit",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ],
+          "yaxis": {
+            "align": false,
+            "alignLevel": null
+          }
+        }
+      ],
+      "title": "Overlord",
+      "type": "row"
+    },
+    {
+      "collapsed": true,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 1
+      },
+      "id": 16,
+      "panels": [
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "$source",
+          "fill": 1,
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 0,
+            "y": 10
+          },
+          "id": 20,
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": false,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "null",
+          "options": {},
+          "percentage": false,
+          "pointradius": 2,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "aggregateMethod": "highest average",
+              "aggregateNumber": 10,
+              "aggregator": "avg",
+              "alias": "上限",
+              "downsampleAggregator": "avg",
+              "downsampleFillPolicy": "none",
+              "granularity": "auto",
+              "isQps": true,
+              "metric": "jvm.mem.max",
+              "refId": "A",
+              "tags": {
+                "clusterName": "$cluster",
+                "memKind": "heap",
+                "service": "druid.coordinator"
+              }
+            },
+            {
+              "aggregateMethod": "highest average",
+              "aggregateNumber": 10,
+              "aggregator": "avg",
+              "alias": "$tag_host",
+              "downsampleAggregator": "avg",
+              "downsampleFillPolicy": "none",
+              "granularity": "auto",
+              "isQps": true,
+              "metric": "jvm.mem.used",
+              "refId": "B",
+              "tags": {
+                "clusterName": "$cluster",
+                "host": "*",
+                "memKind": "heap",
+                "service": "druid.coordinator"
+              }
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeRegions": [],
+          "timeShift": null,
+          "title": "内存",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "bytes",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ],
+          "yaxis": {
+            "align": false,
+            "alignLevel": null
+          }
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "$source",
+          "fill": 1,
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 12,
+            "y": 10
+          },
+          "id": 21,
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": false,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "null",
+          "options": {},
+          "percentage": false,
+          "pointradius": 2,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "aggregateMethod": "highest average",
+              "aggregateNumber": 10,
+              "aggregator": "avg",
+              "alias": "$tag_host",
+              "downsampleAggregator": "avg",
+              "downsampleFillPolicy": "none",
+              "granularity": "auto",
+              "isQps": true,
+              "metric": "jvm.cpu.percent",
+              "refId": "B",
+              "tags": {
+                "clusterName": "$cluster",
+                "host": "*",
+                "service": "druid.coordinator"
+              }
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeRegions": [],
+          "timeShift": null,
+          "title": "CPU",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "percentunit",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ],
+          "yaxis": {
+            "align": false,
+            "alignLevel": null
+          }
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "$source",
+          "fill": 1,
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 0,
+            "y": 18
+          },
+          "id": 22,
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": false,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "null",
+          "options": {},
+          "percentage": false,
+          "pointradius": 2,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "aggregateMethod": "highest average",
+              "aggregateNumber": 10,
+              "aggregator": "sum",
+              "alias": "$tag_host",
+              "downsampleAggregator": "avg",
+              "downsampleFillPolicy": "none",
+              "granularity": "auto",
+              "isQps": true,
+              "metric": "jvm.gc.count",
+              "refId": "A",
+              "tags": {
+                "clusterName": "$cluster",
+                "gcGen": "young",
+                "gcName": "g1",
+                "host": "*",
+                "service": "druid.coordinator"
+              }
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeRegions": [],
+          "timeShift": null,
+          "title": "YGC次数",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ],
+          "yaxis": {
+            "align": false,
+            "alignLevel": null
+          }
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "$source",
+          "fill": 1,
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 12,
+            "y": 18
+          },
+          "id": 23,
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": false,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "null",
+          "options": {},
+          "percentage": false,
+          "pointradius": 2,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "aggregateMethod": "highest average",
+              "aggregateNumber": 10,
+              "aggregator": "sum",
+              "alias": "$tag_host",
+              "downsampleAggregator": "avg",
+              "downsampleFillPolicy": "none",
+              "granularity": "auto",
+              "isQps": true,
+              "metric": "jvm.gc.count",
+              "refId": "A",
+              "tags": {
+                "clusterName": "$cluster",
+                "gcGen": "old",
+                "gcName": "g1",
+                "host": "*",
+                "service": "druid.coordinator"
+              }
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeRegions": [],
+          "timeShift": null,
+          "title": "FGC次数",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "none",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ],
+          "yaxis": {
+            "align": false,
+            "alignLevel": null
+          }
+        }
+      ],
+      "title": "jvm",
+      "type": "row"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 2
+      },
+      "id": 18,
+      "panels": [],
+      "title": "集群",
+      "type": "row"
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "$source",
+      "fill": 1,
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 0,
+        "y": 3
+      },
+      "id": 9,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": false,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {},
+      "percentage": false,
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "aggregateMethod": "highest average",
+          "aggregateNumber": "20",
+          "aggregator": "sum",
+          "alias": "$tag_dataSource",
+          "downsampleAggregator": "avg",
+          "downsampleFillPolicy": "none",
+          "granularity": "auto",
+          "isQps": true,
+          "limit": "avg:top:20",
+          "metric": "segment.count",
+          "refId": "A",
+          "tags": {
+            "clusterName": "$cluster",
+            "dataSource": "*",
+            "service": "druid.coordinator"
+          }
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "segment个数最多(不含副本)",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "$source",
+      "fill": 1,
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 8,
+        "y": 3
+      },
+      "id": 11,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": false,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {},
+      "percentage": false,
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "aggregateMethod": "highest average",
+          "aggregateNumber": "20",
+          "aggregator": "sum",
+          "alias": "$tag_dataSource",
+          "downsampleAggregator": "avg",
+          "downsampleFillPolicy": "none",
+          "granularity": "auto",
+          "isQps": true,
+          "limit": "avg:top:20",
+          "metric": "segment.size",
+          "refId": "A",
+          "tags": {
+            "clusterName": "$cluster",
+            "dataSource": "*"
+          }
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "segment大小最多(不含副本)",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "bytes",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "$source",
+      "fill": 1,
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 16,
+        "y": 3
+      },
+      "id": 10,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": false,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {},
+      "percentage": false,
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "aggregateMethod": "shuffle",
+          "aggregateNumber": "20",
+          "aggregator": "sum",
+          "alias": "$tag_host",
+          "downsampleAggregator": "avg",
+          "downsampleFillPolicy": "none",
+          "granularity": "auto",
+          "isQps": true,
+          "limit": "avg:sample:20",
+          "metric": "segment.used",
+          "refId": "A",
+          "tags": {
+            "clusterName": "$cluster",
+            "host": "*",
+            "service": "druid.historical"
+          }
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "historical 存储分布",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "bytes",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aggregateMethod": "shuffle",
+      "aggregateNumber": 50,
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "$source",
+      "editable": true,
+      "error": false,
+      "fill": 0,
+      "granularities": [],
+      "grid": {},
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 0,
+        "y": 10
+      },
+      "id": 1,
+      "isNew": true,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": false,
+        "total": false,
+        "values": false
+      },
+      "limit": "avg:sample:50",
+      "lines": true,
+      "linesLimitKey": [
+        "all",
+        "shuffle",
+        "highest max",
+        "highest average",
+        "lowest average",
+        "lowest max",
+        "average above",
+        "max above",
+        "min above",
+        "average below",
+        "max below",
+        "min below"
+      ],
+      "linesLimitOptions": {
+        "all": "",
+        "average above": "avg:above:@num",
+        "average below": "avg:below:@num",
+        "highest average": "avg:top:@num",
+        "highest max": "max:top:@num",
+        "lowest average": "avg:bottom:@num",
+        "lowest max": "max:bottom:@num",
+        "max above": "max:above:@num",
+        "max below": "max:below:@num",
+        "min above": "min:above:@num",
+        "min below": "min:below:@num",
+        "shuffle": "avg:sample:@num"
+      },
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {},
+      "percentage": false,
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "aggregateMethod": "highest average",
+          "aggregateNumber": 10,
+          "aggregator": "sum",
+          "downsampleAggregator": "avg",
+          "downsampleFillPolicy": "none",
+          "granularity": "auto",
+          "isQps": true,
+          "metric": "segment.count",
+          "refId": "A",
+          "tags": {
+            "clusterName": "$cluster",
+            "service": "druid.coordinator"
+          }
+        }
+      ],
+      "tenant": "default",
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Segment个数",
+      "tooltip": {
+        "msResolution": false,
+        "ordering": "decreasing",
+        "shared": true,
+        "sort": 2,
+        "value_type": "cumulative"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aggregateMethod": "shuffle",
+      "aggregateNumber": 50,
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "$source",
+      "editable": true,
+      "error": false,
+      "fill": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 8,
+        "y": 10
+      },
+      "id": 2,
+      "isNew": true,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": false,
+        "total": false,
+        "values": false
+      },
+      "limit": "avg:sample:50",
+      "lines": true,
+      "linesLimitKey": [
+        "all",
+        "shuffle",
+        "highest max",
+        "highest average",
+        "lowest average",
+        "lowest max",
+        "average above",
+        "max above",
+        "min above",
+        "average below",
+        "max below",
+        "min below"
+      ],
+      "linesLimitOptions": {
+        "all": "",
+        "average above": "avg:above:@num",
+        "average below": "avg:below:@num",
+        "highest average": "avg:top:@num",
+        "highest max": "max:top:@num",
+        "lowest average": "avg:bottom:@num",
+        "lowest max": "max:bottom:@num",
+        "max above": "max:above:@num",
+        "max below": "max:below:@num",
+        "min above": "min:above:@num",
+        "min below": "min:below:@num",
+        "shuffle": "avg:sample:@num"
+      },
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {},
+      "percentage": false,
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "aggregateMethod": "highest average",
+          "aggregateNumber": 10,
+          "aggregator": "sum",
+          "downsampleAggregator": "avg",
+          "downsampleFillPolicy": "none",
+          "granularity": "20s",
+          "isQps": true,
+          "metric": "segment.count",
+          "refId": "A",
+          "tags": {
+            "clusterName": "$cluster",
+            "service": "druid.historical"
+          }
+        }
+      ],
+      "tenant": "default",
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "segment实际加载个数",
+      "tooltip": {
+        "msResolution": false,
+        "ordering": "decreasing",
+        "shared": true,
+        "sort": 2,
+        "value_type": "cumulative"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aggregateMethod": "shuffle",
+      "aggregateNumber": 50,
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "$source",
+      "editable": true,
+      "error": false,
+      "fill": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 16,
+        "y": 10
+      },
+      "id": 14,
+      "isNew": true,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": false,
+        "total": false,
+        "values": false
+      },
+      "limit": "avg:sample:50",
+      "lines": true,
+      "linesLimitKey": [
+        "all",
+        "shuffle",
+        "highest max",
+        "highest average",
+        "lowest average",
+        "lowest max",
+        "average above",
+        "max above",
+        "min above",
+        "average below",
+        "max below",
+        "min below"
+      ],
+      "linesLimitOptions": {
+        "all": "",
+        "average above": "avg:above:@num",
+        "average below": "avg:below:@num",
+        "highest average": "avg:top:@num",
+        "highest max": "max:top:@num",
+        "lowest average": "avg:bottom:@num",
+        "lowest max": "max:bottom:@num",
+        "max above": "max:above:@num",
+        "max below": "max:below:@num",
+        "min above": "min:above:@num",
+        "min below": "min:below:@num",
+        "shuffle": "avg:sample:@num"
+      },
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {},
+      "percentage": false,
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "aggregateMethod": "highest average",
+          "aggregateNumber": 10,
+          "aggregator": "sum",
+          "downsampleAggregator": "avg",
+          "downsampleFillPolicy": "none",
+          "granularity": "auto",
+          "isQps": true,
+          "metric": "segment.assigned.count",
+          "refId": "A",
+          "tags": {
+            "clusterName": "$cluster"
+          }
+        }
+      ],
+      "tenant": "default",
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "assign队列大小",
+      "tooltip": {
+        "msResolution": false,
+        "ordering": "decreasing",
+        "shared": true,
+        "sort": 2,
+        "value_type": "cumulative"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aggregateMethod": "highest max",
+      "aggregateNumber": 50,
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "$source",
+      "editable": true,
+      "error": false,
+      "fill": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 0,
+        "y": 17
+      },
+      "id": 4,
+      "isNew": true,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": false,
+        "total": false,
+        "values": false
+      },
+      "limit": "max:top:50",
+      "lines": true,
+      "linesLimitKey": [
+        "all",
+        "shuffle",
+        "highest max",
+        "highest average",
+        "lowest average",
+        "lowest max",
+        "average above",
+        "max above",
+        "min above",
+        "average below",
+        "max below",
+        "min below"
+      ],
+      "linesLimitOptions": {
+        "all": "",
+        "average above": "avg:above:@num",
+        "average below": "avg:below:@num",
+        "highest average": "avg:top:@num",
+        "highest max": "max:top:@num",
+        "lowest average": "avg:bottom:@num",
+        "lowest max": "max:bottom:@num",
+        "max above": "max:above:@num",
+        "max below": "max:below:@num",
+        "min above": "min:above:@num",
+        "min below": "min:below:@num",
+        "shuffle": "avg:sample:@num"
+      },
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {},
+      "percentage": false,
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "aggregateMethod": "highest average",
+          "aggregateNumber": 10,
+          "aggregator": "sum",
+          "downsampleAggregator": "avg",
+          "downsampleFillPolicy": "none",
+          "granularity": "auto",
+          "isQps": true,
+          "metric": "segment.loadQueue.count",
+          "refId": "A",
+          "tags": {
+            "clusterName": "$cluster"
+          }
+        }
+      ],
+      "tenant": "default",
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Segment加载队列大小",
+      "tooltip": {
+        "msResolution": false,
+        "ordering": "decreasing",
+        "shared": true,
+        "sort": 2,
+        "value_type": "cumulative"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aggregateMethod": "highest max",
+      "aggregateNumber": 50,
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "$source",
+      "editable": true,
+      "error": false,
+      "fill": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 8,
+        "y": 17
+      },
+      "id": 3,
+      "isNew": true,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": false,
+        "total": false,
+        "values": false
+      },
+      "limit": "max:top:50",
+      "lines": true,
+      "linesLimitKey": [
+        "all",
+        "shuffle",
+        "highest max",
+        "highest average",
+        "lowest average",
+        "lowest max",
+        "average above",
+        "max above",
+        "min above",
+        "average below",
+        "max below",
+        "min below"
+      ],
+      "linesLimitOptions": {
+        "all": "",
+        "average above": "avg:above:@num",
+        "average below": "avg:below:@num",
+        "highest average": "avg:top:@num",
+        "highest max": "max:top:@num",
+        "lowest average": "avg:bottom:@num",
+        "lowest max": "max:bottom:@num",
+        "max above": "max:above:@num",
+        "max below": "max:below:@num",
+        "min above": "min:above:@num",
+        "min below": "min:below:@num",
+        "shuffle": "avg:sample:@num"
+      },
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {},
+      "percentage": false,
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "aggregateMethod": "highest average",
+          "aggregateNumber": 10,
+          "aggregator": "sum",
+          "downsampleAggregator": "avg",
+          "downsampleFillPolicy": "none",
+          "granularity": "auto",
+          "isQps": true,
+          "metric": "segment.dropped.count",
+          "refId": "A",
+          "tags": {
+            "clusterName": "$cluster"
+          }
+        }
+      ],
+      "tenant": "default",
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "删除segment个数",
+      "tooltip": {
+        "msResolution": false,
+        "ordering": "decreasing",
+        "shared": true,
+        "sort": 2,
+        "value_type": "cumulative"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aggregateMethod": "highest max",
+      "aggregateNumber": 50,
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "$source",
+      "editable": true,
+      "error": false,
+      "fill": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 16,
+        "y": 17
+      },
+      "id": 13,
+      "isNew": true,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": false,
+        "total": false,
+        "values": false
+      },
+      "limit": "max:top:50",
+      "lines": true,
+      "linesLimitKey": [
+        "all",
+        "shuffle",
+        "highest max",
+        "highest average",
+        "lowest average",
+        "lowest max",
+        "average above",
+        "max above",
+        "min above",
+        "average below",
+        "max below",
+        "min below"
+      ],
+      "linesLimitOptions": {
+        "all": "",
+        "average above": "avg:above:@num",
+        "average below": "avg:below:@num",
+        "highest average": "avg:top:@num",
+        "highest max": "max:top:@num",
+        "lowest average": "avg:bottom:@num",
+        "lowest max": "max:bottom:@num",
+        "max above": "max:above:@num",
+        "max below": "max:below:@num",
+        "min above": "min:above:@num",
+        "min below": "min:below:@num",
+        "shuffle": "avg:sample:@num"
+      },
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {},
+      "percentage": false,
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "aggregateMethod": "highest average",
+          "aggregateNumber": 10,
+          "aggregator": "sum",
+          "downsampleAggregator": "avg",
+          "downsampleFillPolicy": "none",
+          "granularity": "20s",
+          "isQps": true,
+          "metric": "segment.underReplicated.count",
+          "refId": "A",
+          "tags": {
+            "clusterName": "$cluster"
+          }
+        }
+      ],
+      "tenant": "default",
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "underReplicated个数",
+      "tooltip": {
+        "msResolution": false,
+        "ordering": "decreasing",
+        "shared": true,
+        "sort": 2,
+        "value_type": "cumulative"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aggregateMethod": "highest max",
+      "aggregateNumber": 50,
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "$source",
+      "editable": true,
+      "error": false,
+      "fill": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 0,
+        "y": 24
+      },
+      "id": 5,
+      "isNew": true,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": false,
+        "total": false,
+        "values": false
+      },
+      "limit": "max:top:50",
+      "lines": true,
+      "linesLimitKey": [
+        "all",
+        "shuffle",
+        "highest max",
+        "highest average",
+        "lowest average",
+        "lowest max",
+        "average above",
+        "max above",
+        "min above",
+        "average below",
+        "max below",
+        "min below"
+      ],
+      "linesLimitOptions": {
+        "all": "",
+        "average above": "avg:above:@num",
+        "average below": "avg:below:@num",
+        "highest average": "avg:top:@num",
+        "highest max": "max:top:@num",
+        "lowest average": "avg:bottom:@num",
+        "lowest max": "max:bottom:@num",
+        "max above": "max:above:@num",
+        "max below": "max:below:@num",
+        "min above": "min:above:@num",
+        "min below": "min:below:@num",
+        "shuffle": "avg:sample:@num"
+      },
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {},
+      "percentage": false,
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "aggregateMethod": "highest average",
+          "aggregateNumber": 10,
+          "aggregator": "sum",
+          "downsampleAggregator": "avg",
+          "downsampleFillPolicy": "none",
+          "granularity": "auto",
+          "isQps": true,
+          "metric": "segment.unneeded.count",
+          "refId": "A",
+          "tags": {
+            "clusterName": "$cluster"
+          }
+        }
+      ],
+      "tenant": "default",
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "不需要的segment个数",
+      "tooltip": {
+        "msResolution": false,
+        "ordering": "decreasing",
+        "shared": true,
+        "sort": 2,
+        "value_type": "cumulative"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aggregateMethod": "highest max",
+      "aggregateNumber": 50,
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "$source",
+      "editable": true,
+      "error": false,
+      "fill": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 8,
+        "y": 24
+      },
+      "id": 6,
+      "isNew": true,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": false,
+        "total": false,
+        "values": false
+      },
+      "limit": "max:top:50",
+      "lines": true,
+      "linesLimitKey": [
+        "all",
+        "shuffle",
+        "highest max",
+        "highest average",
+        "lowest average",
+        "lowest max",
+        "average above",
+        "max above",
+        "min above",
+        "average below",
+        "max below",
+        "min below"
+      ],
+      "linesLimitOptions": {
+        "all": "",
+        "average above": "avg:above:@num",
+        "average below": "avg:below:@num",
+        "highest average": "avg:top:@num",
+        "highest max": "max:top:@num",
+        "lowest average": "avg:bottom:@num",
+        "lowest max": "max:bottom:@num",
+        "max above": "max:above:@num",
+        "max below": "max:below:@num",
+        "min above": "min:above:@num",
+        "min below": "min:below:@num",
+        "shuffle": "avg:sample:@num"
+      },
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {},
+      "percentage": false,
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "aggregateMethod": "highest average",
+          "aggregateNumber": 10,
+          "aggregator": "sum",
+          "downsampleAggregator": "avg",
+          "downsampleFillPolicy": "none",
+          "granularity": "auto",
+          "isQps": true,
+          "metric": "segment.dropQueue.count",
+          "refId": "A",
+          "tags": {
+            "clusterName": "$cluster"
+          }
+        }
+      ],
+      "tenant": "default",
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Segment删除队列大小",
+      "tooltip": {
+        "msResolution": false,
+        "ordering": "decreasing",
+        "shared": true,
+        "sort": 2,
+        "value_type": "cumulative"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aggregateMethod": "highest max",
+      "aggregateNumber": 50,
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "$source",
+      "editable": true,
+      "error": false,
+      "fill": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 16,
+        "y": 24
+      },
+      "id": 12,
+      "isNew": true,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": false,
+        "total": false,
+        "values": false
+      },
+      "limit": "max:top:50",
+      "lines": true,
+      "linesLimitKey": [
+        "all",
+        "shuffle",
+        "highest max",
+        "highest average",
+        "lowest average",
+        "lowest max",
+        "average above",
+        "max above",
+        "min above",
+        "average below",
+        "max below",
+        "min below"
+      ],
+      "linesLimitOptions": {
+        "all": "",
+        "average above": "avg:above:@num",
+        "average below": "avg:below:@num",
+        "highest average": "avg:top:@num",
+        "highest max": "max:top:@num",
+        "lowest average": "avg:bottom:@num",
+        "lowest max": "max:bottom:@num",
+        "max above": "max:above:@num",
+        "max below": "max:below:@num",
+        "min above": "min:above:@num",
+        "min below": "min:below:@num",
+        "shuffle": "avg:sample:@num"
+      },
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {},
+      "percentage": false,
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "aggregateMethod": "highest average",
+          "aggregateNumber": 10,
+          "aggregator": "sum",
+          "alias": "$tag_dataSource",
+          "downsampleAggregator": "avg",
+          "downsampleFillPolicy": "none",
+          "granularity": "auto",
+          "isQps": true,
+          "metric": "segment.underReplicated.count",
+          "refId": "A",
+          "tags": {
+            "clusterName": "$cluster",
+            "dataSource": "*"
+          }
+        }
+      ],
+      "tenant": "default",
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "underReplicated的segment个数",
+      "tooltip": {
+        "msResolution": false,
+        "ordering": "decreasing",
+        "shared": true,
+        "sort": 2,
+        "value_type": "cumulative"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aggregateMethod": "average above",
+      "aggregateNumber": "1",
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "$source",
+      "editable": true,
+      "error": false,
+      "fill": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 31
+      },
+      "id": 7,
+      "isNew": true,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": false,
+        "total": false,
+        "values": false
+      },
+      "limit": "avg:above:1",
+      "lines": true,
+      "linesLimitKey": [
+        "all",
+        "shuffle",
+        "highest max",
+        "highest average",
+        "lowest average",
+        "lowest max",
+        "average above",
+        "max above",
+        "min above",
+        "average below",
+        "max below",
+        "min below"
+      ],
+      "linesLimitOptions": {
+        "all": "",
+        "average above": "avg:above:@num",
+        "average below": "avg:below:@num",
+        "highest average": "avg:top:@num",
+        "highest max": "max:top:@num",
+        "lowest average": "avg:bottom:@num",
+        "lowest max": "max:bottom:@num",
+        "max above": "max:above:@num",
+        "max below": "max:below:@num",
+        "min above": "min:above:@num",
+        "min below": "min:below:@num",
+        "shuffle": "avg:sample:@num"
+      },
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {},
+      "percentage": false,
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "aggregateMethod": "highest average",
+          "aggregateNumber": 10,
+          "aggregator": "sum",
+          "alias": "$tag_server",
+          "downsampleAggregator": "avg",
+          "downsampleFillPolicy": "none",
+          "granularity": "auto",
+          "isQps": true,
+          "metric": "segment.loadQueue.count",
+          "refId": "A",
+          "tags": {
+            "clusterName": "$cluster",
+            "server": "*"
+          }
+        }
+      ],
+      "tenant": "default",
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Segment加载队列大小",
+      "tooltip": {
+        "msResolution": false,
+        "ordering": "decreasing",
+        "shared": true,
+        "sort": 2,
+        "value_type": "cumulative"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    }
+  ],
+  "refresh": false,
+  "schemaVersion": 18,
+  "style": "dark",
+  "tags": [
+    "druid"
+  ],
+  "templating": {
+    "list": [
+      {
+        "current": {
+          "tags": [],
+          "text": "druid",
+          "value": "druid"
+        },
+        "hide": 0,
+        "includeAll": false,
+        "label": null,
+        "multi": false,
+        "name": "source",
+        "options": [],
+        "query": "kaijianding-opentsdb-druid-datasource",
+        "refresh": 1,
+        "regex": "druid",
+        "skipUrlSync": false,
+        "type": "datasource"
+      },
+      {
+        "current": {
+          "text": "docker",
+          "value": "docker"
+        },
+        "hide": 2,
+        "label": "",
+        "name": "cluster",
+        "options": [
+          {
+            "selected": true,
+            "text": "docker",
+            "value": "docker"
+          }
+        ],
+        "query": "docker",
+        "skipUrlSync": false,
+        "type": "constant"
+      }
+    ]
+  },
+  "time": {
+    "from": "now-1h",
+    "to": "now"
+  },
+  "timepicker": {
+    "refresh_intervals": [
+      "5s",
+      "10s",
+      "30s",
+      "1m",
+      "5m",
+      "15m",
+      "30m",
+      "1h",
+      "2h",
+      "1d"
+    ],
+    "time_options": [
+      "5m",
+      "15m",
+      "1h",
+      "6h",
+      "12h",
+      "24h",
+      "2d",
+      "7d",
+      "30d"
+    ]
+  },
+  "timezone": "browser",
+  "title": "Druid Coordinator",
+  "uid": "lAFvB4oiz",
+  "version": 2
+}

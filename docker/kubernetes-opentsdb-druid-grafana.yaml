@@ -1,0 +1,47 @@
+# Setup Service to provide access to Zookeeper for clients
+apiVersion: v1
+kind: Service
+metadata:
+  name: druid-grafana
+  labels:
+    app: druid-grafana
+spec:
+  ports:
+    - port: 3000
+      protocol: TCP
+      targetPort: 3000
+  selector:
+    app: druid-grafana
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: druid-grafana
+spec:
+  selector:
+    matchLabels:
+      app: druid-grafana
+  serviceName: druid-grafana
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: druid-grafana
+    spec:
+      containers:
+        - name: druid-grafana
+          imagePullPolicy: Always
+          image: "opentsdb-druid-grafana:0.1"
+          resources:
+            requests:
+              memory: "512M"
+              cpu: "1"
+            limits:
+              memory: "512M"
+              cpu: "1"
+          ports:
+            - containerPort: 3000
+              name: dbapi
+          env:
+            - name: GF_SECURITY_ADMIN_PASSWORD
+              value: "123456"
